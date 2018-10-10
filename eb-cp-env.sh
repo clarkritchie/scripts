@@ -36,7 +36,6 @@ eb printenv $FROM_ENVIRONMENT \
     | grep -v SECRET_KEY_BASE \
     | sort -t: -k 2 \
     > $FILE
-cat $FILE
 
 # print the command the user can copy-paste into a shell to update the new environment
 
