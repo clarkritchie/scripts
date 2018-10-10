@@ -3,9 +3,9 @@
 # crazy quick and dirty script to copy Elastic Beanstalk env vars from
 # one environment to another
 #
-# ./copyenv.sh source target
+# ./eb-cp-env.sh source target
 #
-# outputs the command for you to execute -- just copy and paste
+# outputs the command for you to execute -- just copy and paste, it does not execute the command!
 #
 
 if [ -z "$1" ]; then
