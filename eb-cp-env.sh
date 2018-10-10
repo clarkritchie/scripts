@@ -28,8 +28,14 @@ FILE=`mktemp`
 
 # skip first line
 # sqash whitespace around = character
-eb printenv $FROM_ENVIRONMENT | sed -n '1!p' | sed 's/ //g' > $FILE
-echo $FILE
+# do not copy over SECRET_KEY_BASE
+# sort alphabetically
+eb printenv $FROM_ENVIRONMENT \
+    | sed -n '1!p' \
+    | sed 's/ //g' \
+    | grep -v SECRET_KEY_BASE \
+    | sort -t: -k 2 \
+    > $FILE
 cat $FILE
 
 # print the command the user can copy-paste into a shell to update the new environment
