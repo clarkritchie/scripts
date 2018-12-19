@@ -7,11 +7,11 @@ Miscellaneous scripts for this, that.
 
 ### not really mine
 
-- `aws-security.sh` is a simpler version of this [aws_security_group_update](https://github.com/swoodford/aws/blob/master/vpc-sg-import-rules-cloudflare.sh), ever so slighly modified to a) get the Cludflare IPs dynamically and b) take the security group and port via argument, so you could do something like this:
+- `aws-security.sh` is minor riff off of [this](https://gist.github.com/niraj-shah/567da4146fe2912bb6b4626bc71471ea#file-aws-security-sh) script, but with the CloudFlare IPs plucked dynamically (also a riff from [aws_security_group_update](https://github.com/swoodford/aws/blob/master/vpc-sg-import-rules-cloudflare.sh)), ever so slighly modified to a) get the Cludflare IPs dynamically and b) take the security group and port via argument, so you could do something like this:
 ```
 #!/bin/bash
-./aws-security.sh "sg-02ecd4898470d576d" 80
-./aws-security.sh "sg-09ecd4873470d576a" 443
-...
-
+export SG="sg-02ecd4898470d576d"
+./aws-security.sh $SG 80
+./aws-security.sh $SG 443
+# etc...
 ```
